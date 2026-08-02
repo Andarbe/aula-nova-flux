@@ -1,0 +1,108 @@
+/* ==== Design tokens (Unidad 2) como variables CSS ==== */
+:root {
+  --primary-500: #0052CC;
+  --success-500: #36B37E;
+  --danger-500:  #DE350B;
+  --background:   #F5F7FA;
+  --surface:      #FFFFFF;
+  --text-primary: #172B4D;
+  --text-muted:   #5E6C84;
+  --border:       #DFE1E6;
+  --font-family:  Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --spacing-md:   16px;
+  --radius-md:    8px;
+  --shadow-sm:    0 2px 8px rgba(9, 30, 66, 0.12);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  background: var(--background);
+}
+
+/* ==== App shell ==== */
+.topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--text-primary); color: #fff;
+  padding: 12px var(--spacing-md);
+}
+.brand { font-weight: 700; font-size: 18px; }
+.tag { font-size: 12px; opacity: .8; }
+.container { max-width: 960px; margin: 0 auto; padding: var(--spacing-md); }
+.h1 { font-size: 22px; margin: 8px 0 12px; }
+.count { color: var(--text-muted); font-size: 13px; margin: 4px 0 12px; }
+
+/* ==== Chips (Ley de Hick) ==== */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  border: 1px solid var(--primary-500); background: #EAF0FB; color: var(--primary-500);
+  padding: 6px 14px; border-radius: 999px; font-size: 13px; cursor: pointer;
+}
+.chip--active { background: var(--primary-500); color: #fff; }
+
+/* ==== Grid de tarjetas ==== */
+.grid {
+  display: grid; gap: var(--spacing-md); margin-top: var(--spacing-md);
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+.card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-md); box-shadow: var(--shadow-sm); overflow: hidden;
+}
+.card__thumb { height: 96px; background: linear-gradient(135deg, #E9EEF7, #D7E0F0); }
+.card__body { padding: 12px; }
+.card__cat { font-size: 11px; color: var(--primary-500); font-weight: 600; text-transform: uppercase; }
+.card__title { font-size: 15px; margin: 6px 0; }
+.card__meta { font-size: 12px; color: var(--text-muted); margin: 0 0 12px; }
+
+/* ==== Botones (design system) ==== */
+.btn {
+  border: none; border-radius: var(--radius-md); padding: 10px 16px;
+  font-size: 14px; font-weight: 600; cursor: pointer; min-height: 44px; /* Ley de Fitts */
+}
+.btn--primary { background: var(--primary-500); color: #fff; }
+.btn--ghost { background: transparent; color: var(--primary-500); border: 1px solid var(--border); }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+
+/* ==== Modal / Wizard (Ley de Miller + Fitts) ==== */
+.overlay {
+  position: fixed; inset: 0; background: rgba(9, 30, 66, 0.55);
+  display: flex; align-items: flex-end; justify-content: center;
+}
+.modal {
+  background: var(--surface); width: 100%; max-width: 460px;
+  border-radius: 16px 16px 0 0; box-shadow: var(--shadow-sm); animation: rise .2s ease;
+}
+@keyframes rise { from { transform: translateY(24px); opacity: .6 } to { transform: none; opacity: 1 } }
+.modal__head {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--text-primary); color: #fff; padding: 12px var(--spacing-md);
+  border-radius: 16px 16px 0 0;
+}
+.modal__close { background: none; border: none; color: #fff; font-size: 20px; cursor: pointer; }
+.modal__head h2 { font-size: 16px; margin: 0; }
+.modal__body { padding: var(--spacing-md); display: flex; flex-direction: column; gap: 12px; }
+.modal__body--center { text-align: center; align-items: center; }
+.modal__sub { color: var(--text-muted); font-size: 13px; margin: 0; }
+.modal label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--text-muted); }
+.modal select, .modal input {
+  padding: 10px; border: 1px solid var(--border); border-radius: var(--radius-md);
+  font-size: 14px; color: var(--text-primary); min-height: 44px;
+}
+.summary { background: var(--background); padding: 12px; border-radius: var(--radius-md); font-size: 14px; }
+.summary p { margin: 4px 0; }
+.modal__actions { display: flex; justify-content: space-between; gap: 12px; margin-top: 4px; }
+.modal__actions .btn { flex: 1; }
+.ok { color: var(--success-500); font-size: 18px; font-weight: 700; }
+.err { color: var(--danger-500); font-size: 13px; margin: 0; }
+
+/* ==== Progress (Ley de Miller) ==== */
+.progress { display: flex; align-items: center; justify-content: center; gap: 8px; }
+.progress__step { display: flex; align-items: center; }
+.progress__dot {
+  width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center;
+  border: 2px solid var(--border); color: var(--text-muted); font-size: 13px; font-weight: 700;
+}
+.progress__step.is-done .progress__dot { background: var(--success-500); border-color: var(--success-500); color: #fff; }
