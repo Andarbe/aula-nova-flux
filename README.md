@@ -1,6 +1,6 @@
 # Aula Nova — Prototipo funcional (Patron Flux)
 
-Prototipo de ** · Arquitectura Front-End**. Implementa el patron
+Prototipo de **· Arquitectura Front-End**. Implementa el patron
 arquitectonico **Flux** (store centralizado + flujo unidireccional) sobre una
 porcion de la plataforma educativa *Aula Nova* :
 **catalogo de cursos** e **inscripcion por pasos**.
@@ -17,7 +17,7 @@ npm run dev
 Abre el navegador en la URL que muestra la consola (por defecto
 `http://localhost:5173`).
 
-## Que demuestra el prototipo
+## Que demuestra este prototipo
 - **Store centralizado** (`src/flux/store.ts`): unica fuente de verdad del estado.
 - **Flujo unidireccional**: la vista despacha *acciones* -> el *reducer* actualiza
   el store -> el store notifica a las vistas suscritas -> la UI se re-renderiza.
