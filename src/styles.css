@@ -69,11 +69,11 @@ body {
 /* ==== Modal / Wizard (Ley de Miller + Fitts) ==== */
 .overlay {
   position: fixed; inset: 0; background: rgba(9, 30, 66, 0.55);
-  display: flex; align-items: flex-end; justify-content: center;
+  display: flex; align-items: center; justify-content: center;
 }
 .modal {
   background: var(--surface); width: 100%; max-width: 460px;
-  border-radius: 16px 16px 0 0; box-shadow: var(--shadow-sm); animation: rise .2s ease;
+  border-radius: 16px 16px; box-shadow: var(--shadow-sm); animation: rise .2s ease;
 }
 @keyframes rise { from { transform: translateY(24px); opacity: .6 } to { transform: none; opacity: 1 } }
 .modal__head {
